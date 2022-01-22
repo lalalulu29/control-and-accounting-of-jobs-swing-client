@@ -11,6 +11,9 @@ import java.net.URL;
 public class NetworkProvider {
     private static NetworkProvider instance;
 
+    private static final String SERVER_NAME = "192.168.1.64";
+    private static final String PORT = "8099";
+
 
     private static final String USER_AGENT = "Mozilla/5.0";
     private static final String ERROR_MESSAGE = "Ошибка при подключении к серверу";
@@ -32,7 +35,7 @@ public class NetworkProvider {
         log.info("was get all workplaces");
         URL url;
         try {
-            url = new URL("http://192.168.1.64:8099/v1/test/findAllWorkplace");
+            url = new URL("http://" + SERVER_NAME + ":" + PORT +"/v1/test/findAllWorkplace");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(
@@ -56,7 +59,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/getPeripheryType");
+            builder.append("http://"+ SERVER_NAME +":"+ PORT +"/v1/test/getPeripheryType");
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -82,7 +85,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/findComputerByWorkPlaceId=");
+            builder.append("http://"+ SERVER_NAME + ":"+ PORT +"/v1/test/findComputerByWorkPlaceId=");
             builder.append(workplaceId);
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -108,7 +111,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/getPeriphery=");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/getPeriphery=");
             builder.append(workplaceId);
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -135,7 +138,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/createNewWorkplace");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/createNewWorkplace");
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
@@ -170,7 +173,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/setComputer");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/setComputer");
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
@@ -206,7 +209,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/setPeriphery");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/setPeriphery");
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
@@ -238,7 +241,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/deleteComputerById=");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/deleteComputerById=");
             builder.append(computerId);
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -263,7 +266,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/delPeriphery=");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/delPeriphery=");
             builder.append(id);
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -288,7 +291,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/deleteById=");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/deleteById=");
             builder.append(workplaceId);
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -313,7 +316,7 @@ public class NetworkProvider {
         URL url;
         StringBuilder builder = new StringBuilder();
         try {
-            builder.append("http://192.168.1.64:8099/v1/test/delPeripheryByWorkplaceId=");
+            builder.append("http://" + SERVER_NAME + ":"+ PORT + "/v1/test/delPeripheryByWorkplaceId=");
             builder.append(workplaceId);
             url = new URL(builder.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
